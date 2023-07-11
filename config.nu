@@ -6,7 +6,7 @@
 # https://www.nushell.sh/book/coloring_and_theming.html
 # And here is the theme collection
 # https://github.com/nushell/nu_scripts/tree/main/themes
-let dark_theme = {
+let one_dark_theme = {
     separator: "#abb2bf"
     leading_trailing_space_bg: { attr: "n" }
     header: { fg: "#98c379" attr: "b" }
@@ -89,7 +89,7 @@ let dark_theme = {
     cursor: "#5c6370"
 }
 
-let light_theme = {
+let one_light_theme = {
     separator: "#383a42"
     leading_trailing_space_bg: { attr: "n" }
     header: { fg: "#50a14f" attr: "b" }
@@ -295,7 +295,7 @@ let-env config = {
     vi_insert: block # block, underscore, line , blink_block, blink_underscore, blink_line (block is the default)
     vi_normal: underscore # block, underscore, line, blink_block, blink_underscore, blink_line (underscore is the default)
   }
-  color_config: $dark_theme   # if you want a light theme, replace `$dark_theme` to `$light_theme`
+  color_config: $one_dark_theme   # if you want a light theme, replace `$one_dark_theme` to `$one_light_theme`
   use_grid_icons: true
   footer_mode: "25" # always, never, number_of_rows, auto
   float_precision: 2 # the precision for displaying floats in tables
