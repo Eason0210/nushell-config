@@ -86,5 +86,10 @@ let-env NU_PLUGIN_DIRS = [
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
+if $nu.os-info.name == "macos" {
+   let-env PATH = ($env.PATH | append "/opt/local/bin")
+   let-env PATH = ($env.PATH | append "/usr/local/bin")
+}
+
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
