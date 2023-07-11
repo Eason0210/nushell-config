@@ -7,173 +7,169 @@
 # And here is the theme collection
 # https://github.com/nushell/nu_scripts/tree/main/themes
 let dark_theme = {
-    # color for nushell primitives
-    separator: white
-    leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
-    header: green_bold
-    empty: blue
-    # Closures can be used to choose colors for specific values.
-    # The value (in this case, a bool) is piped into the closure.
-    bool: {|| if $in { 'light_cyan' } else { 'light_gray' } }
-    int: white
+    separator: "#abb2bf"
+    leading_trailing_space_bg: { attr: "n" }
+    header: { fg: "#98c379" attr: "b" }
+    empty: "#61afef"
+    bool: {|| if $in { "#56b6c2" } else { "light_gray" } }
+    int: "#abb2bf"
     filesize: {|e|
-      if $e == 0b {
-        'white'
-      } else if $e < 1mb {
-        'cyan'
-      } else { 'blue' }
+        if $e == 0b {
+            "#abb2bf"
+        } else if $e < 1mb {
+            "#56b6c2"
+        } else {{ fg: "#61afef" }}
     }
-    duration: white
+    duration: "#abb2bf"
     date: {|| (date now) - $in |
-      if $in < 1hr {
-        'purple'
-      } else if $in < 6hr {
-        'red'
-      } else if $in < 1day {
-        'yellow'
-      } else if $in < 3day {
-        'green'
-      } else if $in < 1wk {
-        'light_green'
-      } else if $in < 6wk {
-        'cyan'
-      } else if $in < 52wk {
-        'blue'
-      } else { 'dark_gray' }
+        if $in < 1hr {
+            { fg: "#e06c75" attr: "b" }
+        } else if $in < 6hr {
+            "#e06c75"
+        } else if $in < 1day {
+            "#d19a66"
+        } else if $in < 3day {
+            "#98c379"
+        } else if $in < 1wk {
+            { fg: "#98c379" attr: "b" }
+        } else if $in < 6wk {
+            "#56b6c2"
+        } else if $in < 52wk {
+            "#61afef"
+        } else { "dark_gray" }
     }
-    range: white
-    float: white
-    string: white
-    nothing: white
-    binary: white
-    cellpath: white
-    row_index: green_bold
-    record: white
-    list: white
-    block: white
-    hints: dark_gray
-    search_result: {bg: red fg: white}
+    range: "#abb2bf"
+    float: "#abb2bf"
+    string: "#abb2bf"
+    nothing: "#abb2bf"
+    binary: "#abb2bf"
+    cellpath: "#abb2bf"
+    row_index: { fg: "#98c379" attr: "b" }
+    record: "#abb2bf"
+    list: "#abb2bf"
+    block: "#abb2bf"
+    hints: "dark_gray"
+    search_result: { fg: "#e06c75" bg: "#abb2bf" }
 
-    shape_and: purple_bold
-    shape_binary: purple_bold
-    shape_block: blue_bold
-    shape_bool: light_cyan
-    shape_closure: green_bold
-    shape_custom: green
-    shape_datetime: cyan_bold
-    shape_directory: cyan
-    shape_external: cyan
-    shape_externalarg: green_bold
-    shape_filepath: cyan
-    shape_flag: blue_bold
-    shape_float: purple_bold
-    # shapes are used to change the cli syntax highlighting
-    shape_garbage: { fg: white bg: red attr: b}
-    shape_globpattern: cyan_bold
-    shape_int: purple_bold
-    shape_internalcall: cyan_bold
-    shape_list: cyan_bold
-    shape_literal: blue
-    shape_match_pattern: green
-    shape_matching_brackets: { attr: u }
-    shape_nothing: light_cyan
-    shape_operator: yellow
-    shape_or: purple_bold
-    shape_pipe: purple_bold
-    shape_range: yellow_bold
-    shape_record: cyan_bold
-    shape_redirection: purple_bold
-    shape_signature: green_bold
-    shape_string: green
-    shape_string_interpolation: cyan_bold
-    shape_table: blue_bold
-    shape_variable: purple
-    shape_vardecl: purple
+    shape_and: { fg: "#c678dd" attr: "b" }
+    shape_binary: { fg: "#c678dd" attr: "b" }
+    shape_block: { fg: "#61afef" attr: "b" }
+    shape_bool: "#56b6c2"
+    shape_custom: "#98c379"
+    shape_datetime: { fg: "#56b6c2" attr: "b" }
+    shape_directory: "#56b6c2"
+    shape_external: "#56b6c2"
+    shape_externalarg: { fg: "#98c379" attr: "b" }
+    shape_filepath: "#56b6c2"
+    shape_flag: { fg: "#61afef" attr: "b" }
+    shape_float: { fg: "#c678dd" attr: "b" }
+    shape_garbage: { fg: "#FFFFFF" bg: "#FF0000" attr: "b" }
+    shape_globpattern: { fg: "#56b6c2" attr: "b" }
+    shape_int: { fg: "#c678dd" attr: "b" }
+    shape_internalcall: { fg: "#56b6c2" attr: "b" }
+    shape_list: { fg: "#56b6c2" attr: "b" }
+    shape_literal: "#61afef"
+    shape_match_pattern: "#98c379"
+    shape_matching_brackets: { attr: "u" }
+    shape_nothing: "#56b6c2"
+    shape_operator: "#d19a66"
+    shape_or: { fg: "#c678dd" attr: "b" }
+    shape_pipe: { fg: "#c678dd" attr: "b" }
+    shape_range: { fg: "#d19a66" attr: "b" }
+    shape_record: { fg: "#56b6c2" attr: "b" }
+    shape_redirection: { fg: "#c678dd" attr: "b" }
+    shape_signature: { fg: "#98c379" attr: "b" }
+    shape_string: "#98c379"
+    shape_string_interpolation: { fg: "#56b6c2" attr: "b" }
+    shape_table: { fg: "#61afef" attr: "b" }
+    shape_variable: "#c678dd"
+
+    background: "#1e2127"
+    foreground: "#5c6370"
+    cursor: "#5c6370"
 }
 
 let light_theme = {
-    # color for nushell primitives
-    separator: dark_gray
-    leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
-    header: green_bold
-    empty: blue
-    # Closures can be used to choose colors for specific values.
-    # The value (in this case, a bool) is piped into the closure.
-    bool: {|| if $in { 'dark_cyan' } else { 'dark_gray' } }
-    int: dark_gray
+    separator: "#383a42"
+    leading_trailing_space_bg: { attr: "n" }
+    header: { fg: "#50a14f" attr: "b" }
+    empty: "#4078f2"
+    bool: {|| if $in { "#0184bc" } else { "light_gray" } }
+    int: "#383a42"
     filesize: {|e|
-      if $e == 0b {
-        'dark_gray'
-      } else if $e < 1mb {
-        'cyan_bold'
-      } else { 'blue_bold' }
+        if $e == 0b {
+            "#383a42"
+        } else if $e < 1mb {
+            "#0184bc"
+        } else {{ fg: "#4078f2" }}
     }
-    duration: dark_gray
-  date: {|| (date now) - $in |
-    if $in < 1hr {
-      'purple'
-    } else if $in < 6hr {
-      'red'
-    } else if $in < 1day {
-      'yellow'
-    } else if $in < 3day {
-      'green'
-    } else if $in < 1wk {
-      'light_green'
-    } else if $in < 6wk {
-      'cyan'
-    } else if $in < 52wk {
-      'blue'
-    } else { 'dark_gray' }
-  }
-    range: dark_gray
-    float: dark_gray
-    string: dark_gray
-    nothing: dark_gray
-    binary: dark_gray
-    cellpath: dark_gray
-    row_index: green_bold
-    record: white
-    list: white
-    block: white
-    hints: dark_gray
-    search_result: {fg: white bg: red}
+    duration: "#383a42"
+    date: {|| (date now) - $in |
+        if $in < 1hr {
+            { fg: "#ca1243" attr: "b" }
+        } else if $in < 6hr {
+            "#ca1243"
+        } else if $in < 1day {
+            "#c18401"
+        } else if $in < 3day {
+            "#50a14f"
+        } else if $in < 1wk {
+            { fg: "#50a14f" attr: "b" }
+        } else if $in < 6wk {
+            "#0184bc"
+        } else if $in < 52wk {
+            "#4078f2"
+        } else { "dark_gray" }
+    }
+    range: "#383a42"
+    float: "#383a42"
+    string: "#383a42"
+    nothing: "#383a42"
+    binary: "#383a42"
+    cellpath: "#383a42"
+    row_index: { fg: "#50a14f" attr: "b" }
+    record: "#383a42"
+    list: "#383a42"
+    block: "#383a42"
+    hints: "dark_gray"
+    search_result: { fg: "#ca1243" bg: "#383a42" }
 
-    shape_and: purple_bold
-    shape_binary: purple_bold
-    shape_block: blue_bold
-    shape_bool: light_cyan
-    shape_closure: green_bold
-    shape_custom: green
-    shape_datetime: cyan_bold
-    shape_directory: cyan
-    shape_external: cyan
-    shape_externalarg: green_bold
-    shape_filepath: cyan
-    shape_flag: blue_bold
-    shape_float: purple_bold
-    # shapes are used to change the cli syntax highlighting
-    shape_garbage: { fg: white bg: red attr: b}
-    shape_globpattern: cyan_bold
-    shape_int: purple_bold
-    shape_internalcall: cyan_bold
-    shape_list: cyan_bold
-    shape_literal: blue
-    shape_match_pattern: green
-    shape_matching_brackets: { attr: u }
-    shape_nothing: light_cyan
-    shape_operator: yellow
-    shape_or: purple_bold
-    shape_pipe: purple_bold
-    shape_range: yellow_bold
-    shape_record: cyan_bold
-    shape_redirection: purple_bold
-    shape_signature: green_bold
-    shape_string: green
-    shape_string_interpolation: cyan_bold
-    shape_table: blue_bold
-    shape_variable: purple
-    shape_vardecl: purple
+    shape_and: { fg: "#a626a4" attr: "b" }
+    shape_binary: { fg: "#a626a4" attr: "b" }
+    shape_block: { fg: "#4078f2" attr: "b" }
+    shape_bool: "#0184bc"
+    shape_custom: "#50a14f"
+    shape_datetime: { fg: "#0184bc" attr: "b" }
+    shape_directory: "#0184bc"
+    shape_external: "#0184bc"
+    shape_externalarg: { fg: "#50a14f" attr: "b" }
+    shape_filepath: "#0184bc"
+    shape_flag: { fg: "#4078f2" attr: "b" }
+    shape_float: { fg: "#a626a4" attr: "b" }
+    shape_garbage: { fg: "#FFFFFF" bg: "#FF0000" attr: "b" }
+    shape_globpattern: { fg: "#0184bc" attr: "b" }
+    shape_int: { fg: "#a626a4" attr: "b" }
+    shape_internalcall: { fg: "#0184bc" attr: "b" }
+    shape_list: { fg: "#0184bc" attr: "b" }
+    shape_literal: "#4078f2"
+    shape_match_pattern: "#50a14f"
+    shape_matching_brackets: { attr: "u" }
+    shape_nothing: "#0184bc"
+    shape_operator: "#c18401"
+    shape_or: { fg: "#a626a4" attr: "b" }
+    shape_pipe: { fg: "#a626a4" attr: "b" }
+    shape_range: { fg: "#c18401" attr: "b" }
+    shape_record: { fg: "#0184bc" attr: "b" }
+    shape_redirection: { fg: "#a626a4" attr: "b" }
+    shape_signature: { fg: "#50a14f" attr: "b" }
+    shape_string: "#50a14f"
+    shape_string_interpolation: { fg: "#0184bc" attr: "b" }
+    shape_table: { fg: "#4078f2" attr: "b" }
+    shape_variable: "#a626a4"
+
+    background: "#fafafa"
+    foreground: "#383a42"
+    cursor: "#383a42"
 }
 
 # External completer example
