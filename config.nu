@@ -631,8 +631,8 @@ let-env config = {
 }
 
 alias vim = nvim # Neovim
-alias e = emacsclient -t -a "" # Use for Terminal emacsclient
-alias ec = emacsclient -n -c -a "" # Use for GUI emacsclient
+alias e = emacsclient -t -a "" # Emacs opens in terminal
+alias ec = emacsclient -n -c -a "" # Emacs opens in GUI mode
 
 # starship prompt init
 source ~/.cache/starship/init.nu

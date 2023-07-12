@@ -91,5 +91,9 @@ if $nu.os-info.name == "macos" {
    let-env PATH = ($env.PATH | append "/usr/local/bin")
 }
 
+let-env ALTERNATE_EDITOR = 'emacs -nw -q'
+let-env EDITOR = 'emacsclient -n'
+let-env VISUAL = 'emacsclient -c -a emacs'
+
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
