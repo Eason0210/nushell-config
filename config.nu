@@ -630,5 +630,7 @@ let-env config = {
   ]
 }
 
+alias vim = nvim # Neovim
+
 # starship prompt init
 source ~/.cache/starship/init.nu
